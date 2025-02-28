@@ -1,8 +1,6 @@
-from pathlib import Path
 from json import loads
 
-ROOT = Path().cwd()
-APP_SETTINGS = ROOT / "appsettings.json"
+from Common.file_paths import APP_SETTINGS
 
 
 class Auth:
