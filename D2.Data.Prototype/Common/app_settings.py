@@ -1,6 +1,6 @@
 from json import loads
 
-from Common.file_paths import APP_SETTINGS
+from .file_paths import APP_SETTINGS
 
 
 class Auth:
@@ -11,7 +11,7 @@ class Auth:
         self.baseurl = baseurl
 
 
-def get_config(section_name) -> Auth:
+def get_config(section_name) -> Auth | None:
     with open(APP_SETTINGS, "r", encoding="utf-8") as file:
         data = loads(file.read())
 
