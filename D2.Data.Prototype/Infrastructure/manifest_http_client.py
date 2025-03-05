@@ -19,3 +19,8 @@ def download_manifest() -> ManifestResponse:
 		}
 		return ManifestResponse(**dictionary)
 
+
+def download_world_content_database(url: str) -> bytes:
+	session = Session()
+	with download(session, url) as response:
+		return response.content
