@@ -60,7 +60,7 @@ class ManifestRepository:
 			self.connection.commit()
 			self.connection.close()
 
-	def get_current_version(self):
+	def get_current_version(self) -> None | str:
 		cursor = self.connection.cursor()
 		sql = """
 		select version from manifest order by version desc limit 1;
@@ -71,6 +71,7 @@ class ManifestRepository:
 			if row is None:
 				return None
 			else:
+				print("Current version is", row[0])
 				return row[0]
 		except Exception as e:
 			print(e)
